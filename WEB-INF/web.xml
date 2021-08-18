@@ -12,6 +12,11 @@
 	<servlet-class>visit.Sample</servlet-class>
 </servlet>
 
+<servlet>
+	<servlet-name>reset.sample</servlet-name>
+	<servlet-class>reset.Sample</servlet-class>
+</servlet>
+
 <servlet-mapping>
 	<servlet-name>sample</servlet-name>
 	<url-pattern>/sample</url-pattern>
@@ -20,6 +25,11 @@
 <servlet-mapping>
 	<servlet-name>visit.sample</servlet-name>
 	<url-pattern>/visit/sample</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>reset.sample</servlet-name>
+	<url-pattern>/reset/sample</url-pattern>
 </servlet-mapping>
 
 </web-app>
