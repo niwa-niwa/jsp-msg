@@ -7,9 +7,19 @@
 	<servlet-class>Sample</servlet-class>
 </servlet>
 
+<servlet>
+	<servlet-name>visit.sample</servlet-name>
+	<servlet-class>visit.Sample</servlet-class>
+</servlet>
+
 <servlet-mapping>
 	<servlet-name>sample</servlet-name>
 	<url-pattern>/sample</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>visit.sample</servlet-name>
+	<url-pattern>/visit/sample</url-pattern>
 </servlet-mapping>
 
 </web-app>
