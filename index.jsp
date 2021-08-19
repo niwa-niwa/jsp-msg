@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
 <%@ page import="msg.MessageDao" %>
 <%@ page import="msg.Message" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,26 +13,34 @@
 
 <body>
 	<h1>Index</h1>
-	<form method="post" action="send.jsp" >
-		タイトル : <br/>
-		<input type="text" name="title" /><br/>
-		メッセージ : <br/>
-		<textarea name="contents" rows="" cols=""></textarea><br/>
-		<button>Click</button>
-	</form>
+	<form method="post" action="sample">
 	
+		タイトル<br/>
+		<input type="text" name="title" /><br/>
+		
+		メッセージ<br/>
+		<textarea name="contents" ></textarea>
+		<br/>
+		
+		<button>Click</button>
+		
+	</form><br/>
 	<%
-		MessageDao dao = new MessageDao();
-		List<Message> messages = dao.select();
+		MessageDao message_dao = new MessageDao();
+		List<Message> messages = message_dao.select();
+	
+		for( Message message : messages){
 	%>
-	<% for(Message msg:messages){ %>
 		<div>
-			<%= msg.date %>
-			<%= msg.title %>
 			<div>
-				<%= msg.contents.replace("\n","<br/>") %>
+				<span><%= message.date %></span>
+				<span><%= message.title %></span>
 			</div>
+			<div><%= message.contents.replace("\n","<br/>") %></div>
 		</div>
+		<br/>
+	
 	<% } %>
+	
 </body>
 </html>

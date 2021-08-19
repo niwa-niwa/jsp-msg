@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="msg.Worker" %>
+<jsp:useBean id="myWorker" type="msg.Worker" scope="request" />
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,18 +11,13 @@
 <body>
 
 	<%
-		String color = request.getParameter("color");
-		String name = request.getParameter("name");
-		String age = request.getParameter("age");
+		Worker w = (Worker)request.getAttribute("myWorker");
 	%>
+	
 	<h1>Result</h1>
-	<% if("blue".equals(color)){ %>
-		<p>選択された色は青です。</p>
-	<% } else if("red".equals(color)){%>
-		<p>選択された色は赤です。</p>
-	<% } %>
-	<p>名前 : <%= name %></p>
-	<p>年齢 : <%= age %></p>
+	
+	名前 : <%= w.getName() %><br/>
+	年齢 : <jsp:getProperty name="myWorker" property="age" />歳<br/>
 	
 	<a href="index.jsp">index.jspへ戻る</a>
 
